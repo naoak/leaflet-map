@@ -1,5 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="leaflet-import.html">
+
+<!-- for shadyDOM -->
 <link rel="import" href="leaflet-style.html">
 
 <!--
@@ -42,8 +44,10 @@ add a marker with a popup text.
 @demo https://leaflet-extras.github.io/leaflet-map/demo.html
 -->
 <dom-module id="leaflet-map">
+	<!-- for shadowDOM -->
+	<link rel="import" type="css" href="../leaflet/dist/leaflet.css" />
 	<template>
-		<style include="leaflet-style">
+		<style>
 			:host { display: block; }
 			:host #map {height:100%; width:100%}
 		</style>
