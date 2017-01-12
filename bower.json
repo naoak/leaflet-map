@@ -26,6 +26,7 @@
   ],
   "dependencies": {
     "polymer": "^1.0.0",
-    "leaflet": "^0.7.3"
+    "leaflet": "^0.7.3",
+    "leaflet-tilefilter": "humangeo/leaflet-tilefilter#ea22669ab8661a54f63046a18d702b33fc5230eb"
   }
 }

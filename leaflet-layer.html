@@ -1,4 +1,5 @@
 <link rel="import" href="leaflet-core.html">
+<link rel="import" href="leaflet-tilefilter-import.html">
 
 <!--
 Abstract element representing ILayer (<a href="http://leafletjs.com/reference.html#ilayer">Leaflet Reference</a>).
@@ -254,8 +255,17 @@ window.leafletMap.LeafletTileLayer = {
 		reuseTiles: {
 			type: Boolean,
 			value: false
-		}
+		},
 
+		/**
+		 * CSS3 Filters for leaflet-tilefilter
+		 * 
+		 * @attribute css-filters
+		 * @type array
+		 */
+		cssFilters: {
+			type: Array
+		}
 	},
 	// unloadInvisibleTiles updateWhenIdle bounds
 	
@@ -333,6 +343,7 @@ Polymer({
 	_containerChanged: function() {
 		if (this.container) {
 			var cleanedUrl = this.url.replace(new RegExp("%7B([sxyz])%7D", "g"), '{$1}');
+			var cssFilters = this.cssFilters;
 			var layer = L.tileLayer(cleanedUrl, {
 				attribution: Polymer.dom(this).innerHTML + this.attribution,
 				minZoom: this.minZoom,
@@ -350,6 +361,11 @@ Polymer({
 				zIndex: this.zIndex,
 				detectRetina: this.detectRetina,
 				reuseTiles: this.reuseTiles,
+				filter: cssFilters && function() {
+					new L.CSSFilter({
+						filters: cssFilters
+					}).render(this);
+				}
 			});
 			this.layer = layer
 
