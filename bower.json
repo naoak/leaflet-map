@@ -26,6 +26,7 @@
   ],
   "dependencies": {
     "polymer": "^1.0.0",
-    "leaflet": "^0.7.3"
+    "leaflet": "^0.7.3",
+    "leaflet.markercluster": "s-cradle/Leaflet.markercluster#leaflet-0.7-style"
   }
 }
