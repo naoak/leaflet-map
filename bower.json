@@ -27,7 +27,8 @@
   "dependencies": {
     "polymer": "^1.0.0",
     "leaflet": "s-cradle/Leaflet#v0.7.7.shadow",
-    "leaflet.markercluster": "s-cradle/Leaflet.markercluster#leaflet-0.7-style"
+    "leaflet.markercluster": "s-cradle/Leaflet.markercluster#leaflet-0.7-style",
+    "leaflet-tilefilter": "humangeo/leaflet-tilefilter#ea22669ab8661a54f63046a18d702b33fc5230eb"
   },
   "resolutions": {
     "leaflet": "v0.7.7.shadow"
