@@ -264,7 +264,8 @@ window.leafletMap.LeafletTileLayer = {
 		 * @type array
 		 */
 		cssFilters: {
-			type: Array
+			type: Array,
+			observer: '_cssFiltersChanged'
 		}
 	},
 	// unloadInvisibleTiles updateWhenIdle bounds
@@ -283,6 +284,16 @@ window.leafletMap.LeafletTileLayer = {
 		}
 	},
 
+	_cssFiltersChanged: function() {
+		if (this.layer) {
+			var cssFilters = this.cssFilters;
+			this.layer.setFilter(cssFilters && function() {
+				new L.CSSFilter({
+						filters: cssFilters
+				}).render(this);
+			});
+		}
+	},
 
 	detached: function() {
 		if (this.container && this.layer) {
